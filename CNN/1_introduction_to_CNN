@@ -1,0 +1,60 @@
+# Convolutional Neural Networks (CNN) 📸🧠
+
+## Introduction 🌟  
+Convolutional Neural Networks (CNNs) are a class of deep learning models specifically designed to process structured grid data, like images. CNNs are widely used in applications such as:  
+- Image classification 🖼️  
+- Object detection 🎯  
+- Medical image analysis 🏥  
+- Autonomous vehicles 🚗  
+
+---
+
+## Why CNNs? 🤔  
+CNNs address the challenges traditional neural networks face when working with images:  
+1️⃣ **Preserve Spatial Information**: Unlike ANNs, CNNs retain the spatial relationships between pixels.  
+2️⃣ **Efficient Parameter Sharing**: Shared filters (kernels) drastically reduce the number of parameters.  
+3️⃣ **Translation Invariance**: Features are detected regardless of their position in the image.
+
+---
+
+## Architecture Overview 🏗️  
+
+1. **Convolution Layer** 🌀  
+   Extracts features (edges, textures) by applying filters.  
+
+2. **Pooling Layer** 🔍  
+   Reduces spatial dimensions to make computation more efficient.  
+
+3. **Fully Connected Layer** 🧠  
+   Combines extracted features to make final predictions.  
+
+---
+
+## Key Applications 🎯  
+
+| Application          | Example                                   |
+|----------------------|-------------------------------------------|
+| Image Classification | Cats vs Dogs 🐱🐶                        |
+| Object Detection     | Identifying cars in traffic images 🚗     |
+| Semantic Segmentation| Autonomous driving lane detection 🛣️     |
+| Style Transfer       | Combining artistic styles with photos 🎨 |
+
+---
+
+## Code Examples 💻  
+
+### 1. Simple CNN Architecture  
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+model = models.Sequential([
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
+    layers.MaxPooling2D((2, 2)),
+    layers.Conv2D(64, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
+    layers.Flatten(),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+model.summary()
